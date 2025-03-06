@@ -1,7 +1,778 @@
-<p>Hello 大家好</p>
+<!-- <p>Hello 大家好</p>
 <p>我是安鹏宇，这是我的个人网站。 </p>
 <p>很高兴你来到这里, 你可以在以下的网站找到我</p>
 
 <ul>
   <li> <a href="https://space.bilibili.com/485867137">哔哩哔哩</a> </li>
-</ul>
+</ul> -->
+
+<!DOCTYPE HTML>
+<html id="home">
+
+  <head>
+    <title>Pengyu Cui's Homepage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Pengyu Cui's Homepage">
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+      :root {
+        --page-width: 60rem;
+        --content-width: 50rem;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+        color: #444;
+        background-color: #eff8ff;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        max-width: var(--page-width);
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        padding: 0 0.5rem;
+      }
+
+      hr {
+        max-width: var(--content-width);
+        margin: 2rem auto;
+        height: 1px;
+        border: none;
+        border-top: 1px solid #ddd;
+      }
+
+      a, a:visited {
+        text-decoration: none;
+        color: #259;
+      }
+      a:hover, a:active {
+        color: #225;
+      }
+
+      section {
+        scroll-margin: 3rem;
+      }
+
+      code {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+
+      /************  Navigation Bar  ************/
+      #navbar {
+        position: sticky;
+        top: 0;
+        background-color: #f8f8f8;
+        margin-bottom: 1rem;
+        opacity: 0.95;
+        box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
+      }
+
+      #navbar > ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        height: 3rem;
+        padding: 0;
+        margin: 0;
+      }
+
+      #navbar > ul > li > a {
+        font-family: initial;
+        margin: 0 0.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+
+      /************  Selfie & Intro  ************/
+      #intro {
+        display: grid;
+        grid-template-columns: 10fr 11fr;
+        grid-column-gap: 3rem;
+      }
+
+      #selfie-container {
+        display: flex;
+        width: 13.5rem;   /* previously 15.5rem */
+        justify-self: right;
+        align-self: center;
+        padding: 0.3rem;
+        border-radius: 0.7rem;
+        background-color: #eee;
+      }
+
+      #selfie {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+      }
+
+      #intro-text {
+        justify-self: left;
+        align-self: center;
+        line-height: 1.5rem;
+      }
+
+      #biography > p {
+        line-height: 1.5;
+        padding: 0 1rem;
+        text-align: justify;
+      }
+
+      #biography img {
+        position: relative;
+        top: 0.14rem;
+        width: 1.1rem;
+        height: 1.1rem;
+        margin: 0 0.2rem;
+      }
+
+      #social-media-icons {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #social-media-icons > li > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        transition-duration: 0.1s;
+        margin-left: -0.2rem;
+        margin-right: 1rem;
+      }
+
+      #social-media-icons > li > a:hover {
+        background-color: #f5f5f5;
+      }
+
+      #social-media-icons > li > a > img {
+        opacity: 0.7;
+      }
+
+      /************  Project Gallery  ************/
+      .project-container {
+        display: grid;
+        list-style: none;
+        padding: 0;
+      }
+
+      .project-container > li:nth-child(odd) {
+        background-color: #fafafa;
+      }
+
+      .project-entry {
+        display: grid;
+        grid-template-columns: 55fr 100fr;
+      }
+
+      .project-icon-container {
+        display: flex;
+        padding: 1rem;
+        justify-content: center;
+      }
+
+      .project-icon-container > a {
+        display: flex;
+        align-items: center;
+        border-radius: 0.5rem;
+        transition-duration: 0.1s;
+
+        &:hover {
+          filter: opacity(0.9);
+          background-color: #eee;
+        }
+      }
+
+      .project-icon-container > a > img {
+        max-width: 100%;
+        max-height: 10rem;
+        border-radius: 0.5rem;
+      }
+
+      .project-info-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .project-description {
+        flex-grow: 1;
+        line-height: 1.5rem;
+      }
+
+      .project-outer-links {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+      }
+
+      .project-outer-links > a {
+        font-size: 0.9em;
+        font-family: inherit;
+        display: inline-block;
+        margin-right: 0.5rem;
+        border: 1.5px solid #4466aa88;
+        border-radius: 0.4rem;
+        padding: 0.3rem 0.5rem;
+        transition-duration: 0.1s;
+      }
+
+      .project-outer-links > a:hover {
+        background-color: #f5f5f5;
+      }
+
+      h3.project-title {
+        font-weight: 550;
+      }
+
+      /************  Footnotes  ************/
+      #copywrite > p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: center; 
+        margin-bottom: 0rem; 
+        margin-top: 0.5rem; 
+        padding-bottom: 2rem
+      }
+      
+
+      /************  Media Queries  ************/
+      /* For narrow screens (splitview, tablet, etc.) */
+      @media screen and (max-width: 768px) {
+        html {
+          font-size: 14px;
+        }
+
+        #intro {
+          grid-column-gap: 1.75rem;
+        }
+
+        #biography img {
+          display: none;
+        }
+      }
+
+      /* For even narrower screens (e.g. mobile phones) */
+      @media screen and (max-width: 550px) {
+        html {
+          font-size: 12px;
+        }
+
+        h2 {
+          text-align: center;
+        }
+
+        #intro {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          font-size: 13px;
+        }
+
+        #social-media-icons {
+          justify-content: center;
+        }
+
+        #comments {
+          padding: 0 1rem;
+        }
+      }
+
+      /* For printers */
+      @media print {
+        html {
+          font-size: 12px;
+        }
+
+        body {
+          box-shadow: none;
+        }
+
+        #navbar {
+          visibility: hidden;
+          margin-bottom: 0rem;
+        }
+
+        #comments {
+          display: none;
+        }
+
+        .project-entry {
+          border: 1px solid #ddd;
+          margin-bottom: -1px;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+      <ul>
+        <li><a href="#home"><code>Home</code></a></li>
+        <li><a href="#biography"><code>Biography</code></a></li>
+        <li><a href="#news"><code>News</code></a></li>
+        <li><a href="#projects"><code>Projects</code></a></li>
+        <li><a href="#comments"><code>Comments</code></a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Introduction -->
+    <section id="intro">
+      <div id="selfie-container">
+        <img id="selfie" src="img/me.jpg" />
+      </div>
+
+      <div id="intro-text">
+        <h2>Pengyu (Raine) Cui</h2>
+        <p>
+          Master's Student in Visual Computing <br>
+          Computing Science, <a href="https://www.sfu.ca/" target="_blank">Simon Fraser University</a>
+        </p>
+        <p>
+          <strong>Github:</strong> <a href="https://github.com/PkuCuipy" target="_blank">PkuCuipy</a><br>
+          <strong>Email:</strong> <a href= "mailto: pengyu_cui@sfu.ca"> pengyu_cui@sfu.ca </a><br>
+          <strong>Address:</strong> Vancouver, BC, Canada <br>
+          <ul id="social-media-icons">
+            <li>
+              <a href="https://github.com/PkuCuipy" target="_blank">
+                <img src="svg/github-icon.svg" width="100%">
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/pengyu-cui" target="_blank">
+                <img src="svg/linkedin-icon.svg" width="100%">
+              </a>
+            </li>
+            <li>
+              <a href="mailto:pengyu_cui@sfu.ca">
+                <img src="svg/email-icon.svg" width="100%">
+              </a>
+            </li>
+            <li>
+              <a href="https://calendly.com/cuipy/20min" target="_blank">
+                <img src="svg/calendar-icon.svg" width="100%">
+              </a>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Biography -->
+    <section id="biography">
+      <h2>Biography</h2>
+      <p>
+        I have graduated with a Bachelor of Data Science degree from <a href="https://english.pku.edu.cn/" target="_blank">Peking University</a>,
+        and am currently a Master's of Professional Computer Science (MPCS) student at <a href="https://www.sfu.ca/" target="_blank">Simon Fraser University</a>.
+      </p>
+      <p>
+        I have great passion on translating ideas and technical advances into practical applications, 
+        building apps that could enhance the quality of everyday life.
+      </p>
+      <p style="text-align: left;">
+        <strong>Proficiencies:</strong><br>
+        <span style="display: flex;">
+          <span>• <strong>Languages</strong>: C/C++, Python, Java, JavaScript, CUDA, Swift, Rust, Golang</span>
+          <span style="flex: 1 0 auto; text-align: right;"><img src="svg/cpp.svg"><img src="svg/python.svg"><img src="svg/java.svg"><img src="svg/javascript.svg"><img src="svg/nvidia.svg"><img src="svg/swift.svg"><img src="svg/rust.svg"></span>
+        </span>
+        <span style="display: flex;">
+          <span>• <strong>Frameworks</strong>: Django, React, Express, SwiftUI, GraphQL, TailwindCSS</span>
+          <span style="flex: 1 0 auto; text-align: right;"><img src="svg/flask.svg"><img src="svg/django.svg"><img src="svg/react.svg"><img src="svg/graphql.svg"><img src="svg/tailwindcss.svg"></span>  
+        </span>
+        <span style="display: flex;">
+          <span>• <strong>Libraries</strong>: NumPy, PyTorch, TensorFlow, Pandas, OpenCV, Matplotlib</span>
+          <span style="flex: 1 0 auto; text-align: right;"><img src="svg/numpy.svg"><img src="svg/pytorch.svg"><img src="svg/tensorflow.svg"><img src="svg/pandas.svg"><img src="svg/opencv.svg"><img src="svg/matplotlib.svg"></span>
+        </span>
+        <span style="display: flex;">
+          <span>• <strong>Utilities</strong>: Bash, Git, Docker, PostgreSQL, Redis, MongoDB, AWS</span>
+          <span style="flex: 1 0 auto; text-align: right;"><img src="svg/bash.svg"><img src="svg/git.svg"><img src="svg/docker.svg"><img src="svg/postgresql.svg"><img src="svg/redis.svg"><img src="svg/aws.svg"><img src="svg/mongodb.svg"></span>
+        </span>
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- News -->
+    <section id="news">
+      <h2>News</h2>
+      <ul>
+        <li>[Jan/2025] I'm actively seeking 2026 NG SDE positions in Canada 🍁 👀</li>
+        <li><strong>[Jan/2025] I've got the SDE intern position at Amazon for Summer 2025! 🎉</strong></li>
+        <li>[Sep/2024] I'm seeking 2025 summer SDE/MLE co-op opportunities in Canada 🍁 👀</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Projects -->
+    <section id="projects">
+
+      <h2>Projects Gallery</h2>
+
+      <ul class="project-container">
+        <!-- paste begin -->
+
+        <!-- total-recall -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/total-recall-webui/" target="_blank">
+              <img src="img/total-recall.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/total-recall-webui/" target="_blank">
+                TotalRecall: Long Surveillance Video Analysis
+              </a>
+            </h3>
+            <div class="project-description">
+              Capture and analyze events of interest from long surveillance video with state of the art LLMs and novel 3D plots!
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/total-recall-webui/" target="_blank"><code>Demo</code></a>
+              <a href="https://pkucuipy.github.io/pdf/total-recall-report.pdf" target="_blank"><code>Report</code></a>
+              <a href="https://github.com/PkuCuipy/total-recall-webui" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- arap-deformation -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/arap-mesh-deform" target="_blank">
+              <img src="img/arap-deformation.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/arap-mesh-deform" target="_blank">
+                Interactive ARAP Mesh Deformation
+              </a>
+            </h3>
+            <div class="project-description">
+              An interactive implementation of the paper “As-Rigid-As-Possible Surface Modeling” (Sorkine and Alexa, 2007)
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/arap-mesh-deform" target="_blank"><code>Demo</code></a>
+              <a href="https://youtu.be/ONV-ctMHuF8" target="_blank"><code>Video</code></a>
+              <a href="https://github.com/PkuCuipy/arap-mesh-deform" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- elite-distribution-visualization -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/elite-distribution/" target="_blank">
+              <img src="img/elite-distribution-visualization.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/elite-distribution/" target="_blank">
+                Visualization of Ancient Chinese Elite Distribution
+              </a>
+            </h3>
+            <div class="project-description">
+              Explore the shift of distribution from 618 to 1911 AD, featuring interactive charts and annotated timelines!
+              <br>
+              <em>Data source: China Biographical Database (CBDB)</em>.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/elite-distribution/" target="_blank"><code>Demo</code></a>
+              <a href="https://github.com/PkuCuipy/elite-distribution" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- gpa-simulator -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/gpa-simulator" target="_blank">
+              <img src="img/gpa-simulator.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/gpa-simulator" target="_blank">
+                GPA Simulator
+              </a>
+            </h3>
+            <div class="project-description">
+              Enhanced GPA utility offering grade simulation and trend analysis.
+              Maintained <strong>1,000+</strong> monthly traffic and has seen a total of <strong>40,000+</strong> visits since 2022.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/gpa-simulator" target="_blank"><code>Demo</code></a>
+              <a href="https://github.com/PkuCuipy/gpa-simulator" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- redstone-music-converter -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://github.com/PkuCuipy/midi-to-redstone-music" target="_blank">
+              <img src="img/redstone-music-converter.png" style="max-height: 10rem;"/>
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://github.com/PkuCuipy/midi-to-redstone-music" target="_blank">
+                Minecraft Redstone Music Converter
+              </a>
+            </h3>
+            <div class="project-description">
+              Translate music MIDI file into Minecraft redstone circuits;
+              <br>
+              Multiple tracks supported with up to five instrumental parts!
+            </div>
+            <div class="project-outer-links">
+              <a href="https://github.com/PkuCuipy/midi-to-redstone-music" target="_blank"><code>Code</code></a>
+              <a href="https://youtu.be/pIrJhmEIU00" target="_blank"><code>Video</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- watch-quick-timer -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/watch-quick-timer" target="_blank">
+              <img src="img/watch-quick-timer.png" style="max-height: 10rem;"/>
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/watch-quick-timer" target="_blank">
+                Watch Quick Timer
+              </a>
+            </h3>
+            <div class="project-description">
+              A timer UI designed for smartwatches, featuring a button array optimized for time-setting on small screens, saving 80% clicks.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/watch-quick-timer" target="_blank"><code>Demo</code></a>
+              <a href="https://github.com/PkuCuipy/watch-quick-timer" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- scanned-doc-vectorization -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://github.com/PkuCuipy/scanned-doc-vectorizer" target="_blank">
+              <img src="img/scanned-doc-vectorization.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://github.com/PkuCuipy/scanned-doc-vectorizer" target="_blank">
+                Scanned Document Vectorizer
+              </a>
+            </h3>
+            <div class="project-description">
+              Enhance low-resolution scanned document into high-quality vectorized PDF with a data-driven approach.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://github.com/PkuCuipy/scanned-doc-vectorizer" target="_blank"><code>Code</code></a>
+              <a href="https://pkucuipy.github.io/pdf/scanned-doc-vectorization-slides.pdf" target="_blank"><code>Slides</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- icv-assignments -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://github.com/PkuCuipy/icv-assignments" target="_blank">
+              <img src="img/icv-assignments.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://github.com/PkuCuipy/icv-assignments" target="_blank">
+                Computer Vision Course Projects
+              </a>
+            </h3>
+            <div class="project-description">
+              A collection of projects covering selected topics in computer vision, <em>e.g.</em>, Canny Edge, RANSAC, BatchNorm, Backprop with <em>NumPy</em>, and ConvNN, PointNet, MaskRCNN in <em>PyTorch</em>.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://github.com/PkuCuipy/icv-assignments" target="_blank"><code>Code</code></a>
+              <a href="https://pkucuipy.github.io/pdf/icv-cheatsheet-2022-spring-pkucuipy.pdf" target="_blank"><code>Notes</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- how-to-optimize-gemm -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://github.com/PkuCuipy/how-to-optimize-gemm-zh-notes/tree/main/notes" target="_blank">
+              <img src="img/how-to-optimize-gemm.png" style="max-height: 10rem;"/>
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://github.com/PkuCuipy/how-to-optimize-gemm-zh-notes/tree/main/notes" target="_blank">
+                Tutorial on Matrix Multiplication Optimization
+              </a>
+            </h3>
+            <div class="project-description">
+              Over 100x speed boost on a single CPU core with AVX-512!
+              <br>
+              Credit to the classic tutorial <a href="https://github.com/flame/how-to-optimize-gemm/wiki" target="_blank">flame/how-to-optimize-gemm</a>.
+            </div>
+            <div class="project-outer-links">
+              <a href="https://github.com/PkuCuipy/how-to-optimize-gemm-zh-notes/tree/main/notes" target="_blank"><code>GitHub</code></a>
+              <a href="https://zhuanlan.zhihu.com/p/557087291" target="_blank"><code>ZhiHu</code></a>
+              <a href="https://github.com/PkuCuipy/how-to-optimize-gemm-zh-notes" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- genetic-triangles (eartist) -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://github.com/PkuCuipy/eartist" target="_blank">
+              <img src="img/genetic-triangles.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://github.com/PkuCuipy/eartist" target="_blank">
+                Genetic Algorithm for Triangle Fitting
+              </a>
+            </h3>
+            <div class="project-description">
+              Evolutionary Art: fitting hundreds of triangles with genetic flair!
+            </div>
+            <div class="project-outer-links">
+              <a href="https://github.com/PkuCuipy/eartist" target="_blank"><code>Code</code></a>
+              <a href="https://github.com/PkuCuipy/eartist#examples" target="_blank"><code>Example</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- fonting-with-unicode -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/fonting-with-unicode" target="_blank">
+              <img src="img/fonting-with-unicode.png" />
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/fonting-with-unicode" target="_blank">
+                Fonting with Unicode
+              </a>
+            </h3>
+            <div class="project-description">
+              Stylize your text using fancy Unicode characters!
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/fonting-with-unicode" target="_blank"><code>Demo</code></a>
+              <a href="https://github.com/PkuCuipy/fonting-with-unicode" target="_blank"><code>Code</code></a>
+            </div>
+          </div>
+        </li>
+
+
+        <!-- simple-ios-style-calculator -->
+        <li class="project-entry">
+          <div class="project-icon-container">
+            <a href="https://pkucuipy.github.io/tiny-ios-styled-calculator" target="_blank">
+              <img src="img/simple-ios-style-calculator.png" style="max-height: 10rem;"/>
+            </a>
+          </div>
+          <div class="project-info-container">
+            <h3 class="project-title">
+              <a href="https://pkucuipy.github.io/tiny-ios-styled-calculator" target="_blank">
+                An iOS-Style Calculator
+              </a>
+            </h3>
+            <div class="project-description">
+              An elegant calculator for mouse, keyboard, and touchscreen!
+            </div>
+            <div class="project-outer-links">
+              <a href="https://pkucuipy.github.io/tiny-ios-styled-calculator" target="_blank"><code>Demo</code></a>
+            </div>
+          </div>
+        </li>
+
+        
+
+
+        <!-- paste end -->
+      </ul>
+    </section>
+
+    
+    <!-- Comments (powered by Giscus) -->
+    <section id="comments">
+      <hr />
+      <h2>Comments</h2>
+      <script src="https://giscus.app/client.js"
+        data-repo="PkuCuipy/back-to-2049-wiki"
+        data-repo-id="R_kgDOIDfNTw"
+        data-category="General"
+        data-category-id="DIC_kwDOIDfNT84Cfqrs"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </section>
+
+    <br>
+
+    <!-- copywrite -->
+    <section id="copywrite">
+      <p>© Pengyu Cui<br>
+        Last Update: Feb 11, 2025
+      </p>
+    </section>
+
+  </body>
+
+</html>
